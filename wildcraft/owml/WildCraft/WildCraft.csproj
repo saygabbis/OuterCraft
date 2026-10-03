@@ -1,0 +1,75 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <RootNamespace>Tecno.WildCraft</RootNamespace>
+    <AssemblyName>WildCraft</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OWML" Version="2.9.8" />
+    <ProjectReference Include="..\WildCraft.Core\WildCraft.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Prefer game Managed; fall back to shipped OWML copies of Unity/game stubs. -->
+  <PropertyGroup>
+    <OuterWildsManaged>C:\Program Files (x86)\Steam\steamapps\common\Outer Wilds\OuterWilds_Data\Managed</OuterWildsManaged>
+    <OuterWildsManaged Condition="'$(OUTERWILDS_MANAGED)' != ''">$(OUTERWILDS_MANAGED)</OuterWildsManaged>
+    <OwmlRuntime>$(MSBuildThisFileDirectory)..\_runtime\OWML</OwmlRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\Assembly-CSharp.dll')">$(OuterWildsManaged)\Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\Assembly-CSharp.dll')">$(OwmlRuntime)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\UnityEngine.CoreModule.dll')">$(OuterWildsManaged)\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\UnityEngine.CoreModule.dll')">$(OwmlRuntime)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\UnityEngine.PhysicsModule.dll')">$(OuterWildsManaged)\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\UnityEngine.PhysicsModule.dll')">$(OwmlRuntime)\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\UnityEngine.InputLegacyModule.dll')">$(OuterWildsManaged)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\UnityEngine.InputLegacyModule.dll')">$(OwmlRuntime)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\UnityEngine.IMGUIModule.dll')">$(OuterWildsManaged)\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\UnityEngine.IMGUIModule.dll')">$(OwmlRuntime)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath Condition="Exists('$(OuterWildsManaged)\UnityEngine.dll')">$(OuterWildsManaged)\UnityEngine.dll</HintPath>
+      <HintPath Condition="!Exists('$(OuterWildsManaged)\UnityEngine.dll')">$(OwmlRuntime)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>$(OuterWildsManaged)\UnityEngine.ImageConversionModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>$(OuterWildsManaged)\Unity.InputSystem.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(OwmlRuntime)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="default-config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

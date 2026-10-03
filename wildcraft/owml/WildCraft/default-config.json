@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "settings": {
+    "EnableBridge": true,
+    "DrawMinecraftLayers": true,
+    "DrawMinecraftBlocks": true,
+    "UnitsPerBlock": 1.0
+  }
+}

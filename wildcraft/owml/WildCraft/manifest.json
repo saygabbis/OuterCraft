@@ -1,0 +1,9 @@
+{
+  "filename": "WildCraft.dll",
+  "author": "Tecno",
+  "name": "WildCraft",
+  "uniqueName": "Tecno.WildCraft",
+  "version": "0.1.0",
+  "owmlVersion": "2.16.3",
+  "description": "Play Outer Wilds as a Minecraft player (SkyCraft protocol host). Pair with the SkyCraft Fabric mod."
+}

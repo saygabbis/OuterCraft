@@ -1,0 +1,30 @@
+# gradle / loom
+fabric/.gradle/
+fabric/build/
+fabric/run/
+fabric/out/
+# cmake / vcpkg
+skse/build/
+skse/vcpkg_installed/
+# ide
+.vs/
+.idea/
+*.iml
+.tools/
+# release packaging
+dist/
+# local tools and settings
+CMakeUserPresets.json
+fabric/run-guest*/
+__pycache__/
+*.pyc
+
+# WildCraft (Outer Wilds host)
+wildcraft/owml/_runtime/
+wildcraft/owml/**/bin/
+wildcraft/owml/**/obj/
+wildcraft/tools/**/bin/
+wildcraft/tools/**/obj/
+wildcraft/minecraft_launch.log*
+wildcraft/owml/**/frames.txt
+*.log
